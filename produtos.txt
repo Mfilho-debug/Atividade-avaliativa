@@ -1,0 +1,22 @@
+Notebook Gamer;9500.50;Alienware
+Smartphone Pro;7899.99;Apple
+Smart TV 55";3200.00;LG
+Cadeira Gamer;1500.75;DXRacer
+Fone de Ouvido Bluetooth;899.90;Sony
+Mouse Gamer Sem Fio;450.00;Logitech
+Teclado Mecânico RGB;620.50;Corsair
+Monitor Ultrawide 34";2800.00;Dell
+SSD NVMe 2TB;1200.00;Kingston
+Placa de Vídeo RTX 4080;8500.00;Nvidia
+Console de Videogame;4500.00;Sony
+Cafeteira Expressa;350.99;Nespresso
+Aspirador de Pó Robô;1800.00;iRobot
+Air Fryer 5L;499.50;Mondial
+Liquidificador Power;250.00;Oster
+Furadeira de Impacto;380.70;Bosch
+Mochila para Notebook;299.90;Samsonite
+HD Externo 4TB;750.00;Seagate
+Webcam 4K;950.00;Razer
+Impressora Multifuncional;880.60;HP
+Roteador Wi-Fi 6;600.00;TP-Link
+Tablet Gráfico;2100.00;Wacom
