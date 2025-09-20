@@ -58,7 +58,7 @@ public class TitularAppApplication implements CommandLineRunner {
         print("\nPrograma finalizado.");
     }
     
-    // MÉTODO CORRIGIDO
+    
     private void listar() {
         print("\n# LISTA DE TITULARES");
         Iterable<Titular> titulares = titularDao.findAll();
@@ -68,13 +68,13 @@ public class TitularAppApplication implements CommandLineRunner {
             return;
         }
         
-        // Adicionado o loop para imprimir cada titular
+        
         for (Titular titular : titulares) {
             print(titular.toString());
         }
     }
 
-    // MÉTODO IMPLEMENTADO
+    
     private void buscar() {
         print("\n# BUSCAR TITULAR POR ID");
         try {
@@ -92,7 +92,6 @@ public class TitularAppApplication implements CommandLineRunner {
         }
     }
 
-    // MÉTODO IMPLEMENTADO
     private void criar() {
         print("\n# CRIAR NOVO TITULAR");
         String nome = input("Digite o nome: ");
@@ -107,7 +106,6 @@ public class TitularAppApplication implements CommandLineRunner {
         print(titularSalvo.toString());
     }
 
-    // MÉTODO IMPLEMENTADO
     private void alterar() {
         print("\n# ALTERAR DADOS DO TITULAR");
         try {
@@ -139,7 +137,6 @@ public class TitularAppApplication implements CommandLineRunner {
         }
     }
 
-    // MÉTODO IMPLEMENTADO
     private void apagar() {
         print("\n# APAGAR TITULAR");
         try {
