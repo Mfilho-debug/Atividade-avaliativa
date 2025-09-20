@@ -10,8 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TitularAppApplication implements CommandLineRunner {
 
+    // 1. ALTERAÇÃO PRINCIPAL AQUI: Injetando TitularRepo diretamente
     @Autowired
-    private TitularDao titularDao;
+    private TitularRepo titularRepo;
 
     public static void main(String[] args) {
         SpringApplication.run(TitularAppApplication.class, args);
@@ -58,28 +59,27 @@ public class TitularAppApplication implements CommandLineRunner {
         print("\nPrograma finalizado.");
     }
     
-    
     private void listar() {
         print("\n# LISTA DE TITULARES");
-        Iterable<Titular> titulares = titularDao.findAll();
+        // 2. Usando titularRepo em vez de titularDao
+        Iterable<Titular> titulares = titularRepo.findAll();
         
         if (!titulares.iterator().hasNext()) {
             print("Nenhum titular cadastrado.");
             return;
         }
         
-        
         for (Titular titular : titulares) {
             print(titular.toString());
         }
     }
 
-    
     private void buscar() {
         print("\n# BUSCAR TITULAR POR ID");
         try {
             long id = Long.parseLong(input("Digite o ID do titular: "));
-            Optional<Titular> titularOpt = titularDao.findById(id);
+            // 2. Usando titularRepo em vez de titularDao
+            Optional<Titular> titularOpt = titularRepo.findById(id);
             
             if (titularOpt.isPresent()) {
                 print("Titular encontrado:");
@@ -101,7 +101,8 @@ public class TitularAppApplication implements CommandLineRunner {
         novoTitular.setNome(nome);
         novoTitular.setCpf(cpf);
         
-        Titular titularSalvo = titularDao.save(novoTitular);
+        // 2. Usando titularRepo em vez de titularDao
+        Titular titularSalvo = titularRepo.save(novoTitular);
         print("Titular criado com sucesso!");
         print(titularSalvo.toString());
     }
@@ -110,7 +111,8 @@ public class TitularAppApplication implements CommandLineRunner {
         print("\n# ALTERAR DADOS DO TITULAR");
         try {
             long id = Long.parseLong(input("Digite o ID do titular para alterar: "));
-            Optional<Titular> titularOpt = titularDao.findById(id);
+            // 2. Usando titularRepo em vez de titularDao
+            Optional<Titular> titularOpt = titularRepo.findById(id);
 
             if (titularOpt.isPresent()) {
                 Titular titular = titularOpt.get();
@@ -126,7 +128,8 @@ public class TitularAppApplication implements CommandLineRunner {
                     titular.setCpf(novoCpf);
                 }
                 
-                Titular titularAtualizado = titularDao.save(titular);
+                // 2. Usando titularRepo em vez de titularDao
+                Titular titularAtualizado = titularRepo.save(titular);
                 print("Titular atualizado com sucesso!");
                 print(titularAtualizado.toString());
             } else {
@@ -142,8 +145,10 @@ public class TitularAppApplication implements CommandLineRunner {
         try {
             long id = Long.parseLong(input("Digite o ID do titular para apagar: "));
             
-            if (titularDao.findById(id).isPresent()) {
-                titularDao.deleteById(id);
+            // 2. Usando titularRepo em vez de titularDao
+            if (titularRepo.findById(id).isPresent()) {
+                // 2. Usando titularRepo em vez de titularDao
+                titularRepo.deleteById(id);
                 print("Titular com ID " + id + " apagado com sucesso.");
             } else {
                 print("Titular com o ID " + id + " não encontrado.");
